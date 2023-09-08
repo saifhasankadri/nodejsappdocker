@@ -6,7 +6,7 @@ node {
     }
 
     stage('Build image') {
-        app = docker.build("brainupgrade/nodejsapp")
+        app = docker.build("saifhasan54/nodejsapp")
     }
 
     stage('Push image') {
@@ -16,6 +16,6 @@ node {
         }
     }
     stage('k8s deploy') {
-        sh "kubectl set image deploy nodejsapp nodejsapp=brainupgrade/nodejsapp:${env.BUILD_NUMBER}"
+        sh "kubectl set image deploy nodejsapp nodejsapp=saifhasan54/nodejsapp:${env.BUILD_NUMBER}"
     }  
 }
